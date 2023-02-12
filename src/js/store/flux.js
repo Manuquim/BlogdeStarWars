@@ -48,6 +48,18 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
             getPerson: (person) => { setStore({ selectPerson: person, }); },
+
+            addFavorite : item =>{
+                const store = getStore();
+				setStore({ favorites: [...store.favorites, item] });
+				console.log(store.favorites);
+            },
+
+            delFavorite: item => {
+                const store = getStore();
+                const delName = store.favorites.filter(name => name !== item);
+                setStore({ favorites: delName });
+            },
 		}
 	};
 };

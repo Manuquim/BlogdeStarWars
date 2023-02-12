@@ -10,7 +10,7 @@ import { Context } from '../store/appContext';
 
 export const CardPlanets = ({ id, name, population, terrain, climate, orbiltal_period, rotation_period, diameter }) => {
     const { store, actions } = useContext(Context);
-    const planet = store.planet;
+    const planet = store.planets;
 
     const urlImage = "https://starwars-visualguide.com/assets/img/planets/" + id + ".jpg";
     const handleOnErrorImg = (e) => {
@@ -32,7 +32,7 @@ export const CardPlanets = ({ id, name, population, terrain, climate, orbiltal_p
                                 Details
                         </Link>
                         <Link className="btn btn-outline-warning" 
-                            onClick={() => actions.favorites({ name, id })}>
+                            onClick={() => actions.addfavorite(planet[id])}>
                                 <i className="far fa-heart fa-lg"></i>
                         </Link>
                     </div>

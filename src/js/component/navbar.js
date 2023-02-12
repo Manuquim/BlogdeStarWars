@@ -1,7 +1,12 @@
-import React from "react";
+
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from '../store/appContext';
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
+  const [fav,setFav]=useState(store.favorites);
+
   return (
     <nav className="navbar navbar-dark bg-dark mb-3">
       <div className="container-fluid d-flex justify-content-between mx-md-4 mt-4 mb-1">
@@ -26,7 +31,7 @@ export const Navbar = () => {
                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Favorites  
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
-                    4
+                    {fav.length}
                   </span>
                 </button>
                 <ul className="dropdown-menu">

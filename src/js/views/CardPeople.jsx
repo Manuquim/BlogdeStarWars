@@ -31,7 +31,7 @@ export const CardPeople = ({ i, name, hair_color, eye_color}) => {
                                 Details
                         </Link>
                         <Link className="btn btn-outline-warning" 
-                            onClick={() => actions.favorites({ name, i})}>
+                            onClick={() => actions.addfavorite(people[i])}>
                                 <i className="far fa-heart fa-lg"></i>
                         </Link>
                     </div>
