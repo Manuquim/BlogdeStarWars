@@ -51,8 +51,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             addFavorite : item =>{
                 const store = getStore();
-				setStore({ favorites: [...store.favorites, item] });
-				console.log(store.favorites);
+                let favorito=store.favorites;
+                //Buscamos si el elemento ya esta en el store de favoritos
+                let it=favorito.filter((i)=>i.name==item.name);
+                //Si no esta, se añade al store de favoritos
+                if(it.length==0){
+                    setStore({ favorites: [...store.favorites, item] });
+                }
             },
 
             delFavorite: item => {

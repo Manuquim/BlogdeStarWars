@@ -26,7 +26,7 @@ export const BtnFavorites = ({ favoritos }) => {
                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Favorites  
                     <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
-                        4
+                        3
                     </span>
                 </button>
                 <ul className="dropdown-menu">

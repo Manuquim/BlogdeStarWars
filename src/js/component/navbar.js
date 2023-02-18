@@ -2,11 +2,11 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from '../store/appContext';
+import '../../styles/navbar.css'
 
 export const Navbar = () => {
   const { store, actions } = useContext(Context);
-  const [fav,setFav]=useState(store.favorites);
-
+  let favoritos=store.favorites;
   return (
     <nav className="navbar navbar-dark bg-dark mb-3">
       <div className="container-fluid d-flex justify-content-between mx-md-4 mt-4 mb-1">
@@ -31,13 +31,14 @@ export const Navbar = () => {
                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Favorites  
                   <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
-                    {fav.length}
+                    {favoritos.length}
                   </span>
                 </button>
                 <ul className="dropdown-menu">
-                  <li><a className="dropdown-item" href="#">Action</a></li>
-                  <li><a className="dropdown-item" href="#">Another action</a></li>
-                  <li><a className="dropdown-item" href="#">Something else here</a></li>
+                  {favoritos.map((i,index)=>
+                    <li key={index} className="dropdown-item">{i.name}
+                      <a id={i} onClick={() => actions.delFavorite(i)}>&#128465;</a>
+                    </li>)}
                 </ul>
               </div>
             </li>

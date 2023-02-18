@@ -20,7 +20,7 @@ export const CardPlanets = ({ id, name, population, terrain, climate, orbiltal_p
     return (
         <div className="col">
             <div className="card border-dark my-3 mx-2 text-bg-dark">
-                <img alt="" src={urlImage} onError={handleOnErrorImg}></img>
+                <img alt="" src={urlImage} onError={handleOnErrorImg} height="350"></img>
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>
                     <p className="card-text">Population: {population}</p>
@@ -32,7 +32,11 @@ export const CardPlanets = ({ id, name, population, terrain, climate, orbiltal_p
                                 Details
                         </Link>
                         <Link className="btn btn-outline-warning" 
-                            onClick={() => actions.addfavorite(planet[id])}>
+                            onClick={() =>
+                            { 
+                                let x=id-1;
+                                actions.addFavorite(planet[x]);
+                            }}>
                                 <i className="far fa-heart fa-lg"></i>
                         </Link>
                     </div>
