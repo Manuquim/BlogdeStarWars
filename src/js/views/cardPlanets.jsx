@@ -37,7 +37,8 @@ export const CardPlanets = ({ id, name, population, terrain, climate, orbiltal_p
                                 let x=id-1;
                                 actions.addFavorite(planet[x]);
                             }}>
-                                <i className="far fa-heart fa-lg"></i>
+                                {actions.isFavorite(planet[id-1]) ? 
+                                <i className="fas fa-heart fa-lg"></i> : <i className="far fa-heart fa-lg"></i>}
                         </Link>
                     </div>
                 </div>

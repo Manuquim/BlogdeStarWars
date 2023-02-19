@@ -31,11 +31,13 @@ export const CardPeople = ({ i, name, hair_color, eye_color}) => {
                                 Details
                         </Link>
                         <Link className="btn btn-outline-warning" 
-                            onClick={() => {
+                            onClick={() => 
+                            {
                                 let x=i-1;
-                                actions.addFavorite(people[x])}
-                                }>
-                                <i className="far fa-heart fa-lg"></i>
+                                actions.addFavorite(people[x])
+                            }}>
+                                {actions.isFavorite(people[i-1]) ? 
+                                <i className="fas fa-heart fa-lg"></i> : <i className="far fa-heart fa-lg"></i>}
                         </Link>
                     </div>
                 </div>
