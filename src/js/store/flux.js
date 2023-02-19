@@ -55,11 +55,12 @@ const getState = ({ getStore, getActions, setStore }) => {
                 //Buscamos si el elemento ya esta en el store de favoritos
                 let it=favorito.filter((i)=>i.name==item.name);
                 //Si no esta, se añade al store de favoritos
-                if(it.length==0){
-                    setStore({ favorites: [...store.favorites, item] });
-                }
+                if(it.length==0){setStore({ favorites: [...store.favorites, item] });}
             },
-
+            /*addFavorite : item =>{
+                const store = getStore();
+                if(!(action.isFavorite.item)) {setStore({ favorites: [...store.favorites, item] })};
+            },*/
             delFavorite: item => {
                 const store = getStore();
                 const delName = store.favorites.filter(name => name !== item);
@@ -68,9 +69,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             isFavorite: item => {
                 const store = getStore();
-                let favorito=store.favorites;
+                let favoritos=store.favorites;
                 //Buscamos si el elemento ya esta en el store de favoritos
-                let it=favorito.filter((i)=>i.name==item.name);
+                let it=favoritos.filter((i)=>i.name==item.name);
                 //Si no esta return false
                 if(it.length==0){
                     return false;
