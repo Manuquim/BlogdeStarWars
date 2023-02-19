@@ -1,0 +1,8 @@
+.dropdown-item > p{
+    display:inline-block;
+    width: 90%;
+}
+
+.dropdown-item > a{
+    width: 10%;
+}

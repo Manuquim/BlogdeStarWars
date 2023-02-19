@@ -8,7 +8,7 @@ export const Navbar = () => {
   const { store, actions } = useContext(Context);
   let favoritos=store.favorites;
   return (
-    <nav className="navbar navbar-dark bg-dark mb-3">
+    <nav className="navbar navbar-dark bg-dark mb-3 px-5">
       <div className="container-fluid d-flex justify-content-between mx-md-4 mt-4 mb-1">
         <div>
           <Link className="navbar-brand" to="/">
@@ -24,9 +24,6 @@ export const Navbar = () => {
               <Link className="nav-link link-secondary" to="/planets">Planets</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link link-secondary" to="/demo">Starships</Link>
-            </li>
-            <li className="nav-item">
               <div className="dropdown">
                 <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Favorites  
@@ -36,8 +33,8 @@ export const Navbar = () => {
                 </button>
                 <ul className="dropdown-menu">
                   {favoritos.map((i,index)=>
-                    <li key={index} className="dropdown-item">{i.name}
-                      <a id={i} onClick={() => actions.delFavorite(i)}>&#128465;</a>
+                    <li key={index} className="dropdown-item">
+                      <p>{i.name}</p> <a id={i} onClick={() => actions.delFavorite(i)}>&#128465;</a>
                     </li>)}
                 </ul>
               </div>
